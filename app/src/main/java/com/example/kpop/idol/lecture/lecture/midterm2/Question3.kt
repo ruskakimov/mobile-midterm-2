@@ -29,5 +29,16 @@ class Question3 : AppCompatActivity() {
             intent.putExtra("output_currency", "CAD")
             startActivity(intent)
         }
+
+        val shortcut2Btn: Button = findViewById(R.id.shortcut2)
+
+        shortcut2Btn.setOnClickListener {
+            // Launch my calculator
+            val intent = Intent(this, Question1::class.java)
+            intent.putExtra("number1", "123")
+            intent.putExtra("number2", "321")
+            intent.putExtra("operation", "Add")
+            startActivity(intent)
+        }
     }
 }

@@ -44,6 +44,22 @@ class Question1 : AppCompatActivity() {
 
         var selectedOperation = operationOptions.get(0)
 
+        // Read extra data from intent
+        val bundle: Bundle? = intent.extras
+        bundle?.let {
+            val number1 = bundle.getString("number1")
+            val number2 = bundle.getString("number2")
+            val operation = bundle.getString("operation")
+
+            val opIdx = operationOptions.indexOf(operation)
+
+            selectedOperation = if (operation != null && opIdx >= 0) operation else "Add"
+            operationSpinner.setSelection(if (opIdx >= 0) opIdx else 0)
+
+            number1EditText.setText(number1)
+            number2EditText.setText(number2)
+        }
+
         operationSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 selectedOperation = operationOptions.get(p2)
