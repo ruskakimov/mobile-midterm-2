@@ -24,6 +24,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="number"
+        android:hint="Enter value"
         app:layout_constraintEnd_toStartOf="@+id/in_cur_spinner"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
