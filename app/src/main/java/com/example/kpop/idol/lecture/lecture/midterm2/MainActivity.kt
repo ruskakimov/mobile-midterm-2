@@ -79,7 +79,9 @@ class MainActivity : AppCompatActivity() {
                     val usdOutPrice = priceInUSD[selectedCurrencyOut]
                     if (usdOutPrice != null) {
                         val result = usdValue / usdOutPrice
-                        resultTxt.text = result.toString()
+
+                        // round to last two digits after decimal point
+                        resultTxt.text = String.format("%.2f", result)
                     }
                 }
             }
