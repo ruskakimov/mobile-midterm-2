@@ -1,6 +1,9 @@
 package com.example.kpop.idol.lecture.lecture.midterm2
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -8,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -24,6 +28,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
+        toolbar.setTitle("Currency Converter")
+        setSupportActionBar(toolbar)
 
         val valueEdit: EditText = findViewById(R.id.value_edit)
         val inCurSpinner: Spinner = findViewById(R.id.in_cur_spinner)
@@ -101,5 +109,24 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.open_question1 -> {
+//                val intent = Intent(this, Question1::class.java)
+//                startActivity(intent)
+            }
+            R.id.open_question3 -> {
+                val intent = Intent(this, Question3::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
     }
 }
