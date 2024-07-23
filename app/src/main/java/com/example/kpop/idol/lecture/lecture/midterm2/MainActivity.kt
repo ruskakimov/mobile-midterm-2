@@ -50,6 +50,21 @@ class MainActivity : AppCompatActivity() {
         var selectedCurrencyOut = currencyOptions.get(1)
         outCurSpinner.setSelection(1)
 
+        // Read extra data from intent
+        val bundle: Bundle? = intent.extras
+        bundle?.let {
+            val inputValue = bundle.getString("input_value")
+            val inputCurrency = bundle.getString("input_currency")
+            val outputCurrency = bundle.getString("output_currency")
+
+            val inIdx = currencyOptions.indexOf(inputCurrency)
+            val outIdx = currencyOptions.indexOf(outputCurrency)
+
+            valueEdit.setText(inputValue)
+            inCurSpinner.setSelection(if (inIdx >= 0) inIdx else 0)
+            outCurSpinner.setSelection(if (outIdx >= 0) outIdx else 0)
+        }
+
         inCurSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 selectedCurrencyIn = currencyOptions.get(p2)
