@@ -119,8 +119,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.open_question1 -> {
-//                val intent = Intent(this, Question1::class.java)
-//                startActivity(intent)
+                val intent = Intent(this, Question1::class.java)
+                startActivity(intent)
             }
             R.id.open_question3 -> {
                 val intent = Intent(this, Question3::class.java)
